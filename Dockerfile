@@ -5,7 +5,7 @@ MAINTAINER Michael Parker, <parkervcp+docker@gmail.com>
 
 RUN apk update \
     && apk upgrade \
-    && apk add --no-cache --update curl ca-certificates openssl perl \
+    && apk add --no-cache --update curl ca-certificates openssl perl sqlite \
     && adduser -D -h /home/container container
 
 USER container
