@@ -12,7 +12,7 @@ COPY ./entry.sh /entry.sh
 
 RUN adduser -D -h /home/container container \
  && apk update \
- && apk add curl \
+ && apk add curl sqlite \
  && chmod +x /entry.sh
 
 USER container
