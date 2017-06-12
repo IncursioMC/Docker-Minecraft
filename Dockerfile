@@ -4,7 +4,7 @@
 # +-----------------------------------+
 # |       https://pterodactyl.io      |
 # +-----------------------------------+
-FROM quay.io/pires/docker-jre:8u131
+FROM openjdk:8-jre-alpine
 
 MAINTAINER parkervcp, <parker@parkervcp.com>
 
