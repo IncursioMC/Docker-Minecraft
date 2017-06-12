@@ -1,18 +1,20 @@
 # +-----------------------------------+
 # | Official Pterodactyl Docker Image |
-# |         Minecraft: Spigot         |
+# |         Minecraft: BungeeCord     |
 # +-----------------------------------+
 # |       https://pterodactyl.io      |
 # +-----------------------------------+
-FROM java:openjdk-8-jre-alpine
+FROM quay.io/pires/docker-jre:8u131
 
 MAINTAINER parkervcp, <parker@parkervcp.com>
 
 COPY ./entry.sh /entry.sh
 
 RUN adduser -D -h /home/container container \
+ && echo "http://dl-3.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositories \
  && apk update \
- && apk add curl sqlite \
+ && apk upgrade --available \
+ && apk add curl sqlite openssl-dev \
  && chmod +x /entry.sh
 
 USER container
