@@ -3,13 +3,16 @@
 sleep 3
 
 cd /home/container
-CHK_FILE="/home/container/${SERVER_JARFILE}"
-
-
 # Download the file
 MODIFIED_DL_PATH=`echo ${DL_PATH} | perl -pe 's@\{\{(.*?)\}\}@$ENV{$1}@g'`
 echo "$ curl -sS -L -o ${SERVER_JARFILE} ${MODIFIED_DL_PATH}"
 curl -sS -L -o ${SERVER_JARFILE} ${MODIFIED_DL_PATH}
+
+if [ -z "$PLUGIN_SCRIPT"]; then
+    mkdir -p /home/container/plugins
+	cd /home/container/plugins
+    curl -sL ${PLUGIN_SCRIPT} | sudo bash
+fi
 
 cd /home/container
 
