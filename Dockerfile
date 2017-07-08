@@ -1,5 +1,5 @@
 # Minimal Minecraft Docker container for Pterodactyl Panel
-FROM frolvlad/alpine-oraclejdk8:cleaned
+FROM openjdk:8-jre-alpine
 
 MAINTAINER Dane Everitt <dane+docker@daneeveritt.com>
 
