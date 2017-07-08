@@ -8,10 +8,12 @@ MODIFIED_DL_PATH=`echo ${DL_PATH} | perl -pe 's@\{\{(.*?)\}\}@$ENV{$1}@g'`
 echo "$ curl -sS -L -o ${SERVER_JARFILE} ${MODIFIED_DL_PATH}"
 curl -sS -L -o ${SERVER_JARFILE} ${MODIFIED_DL_PATH}
 
-if [ -z "$PLUGIN_SCRIPT" ]; then
+if [ ! -z "$PLUGIN_SCRIPT" ]; then
     mkdir -p /home/container/plugins
     cd /home/container/plugins
+	echo "Downloading plugins..."
     curl -sL ${PLUGIN_SCRIPT} | sudo bash
+	echo "Finished Downloading plugins!"
 fi
 
 cd /home/container
