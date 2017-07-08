@@ -12,7 +12,7 @@ if [ ! -z "$PLUGIN_SCRIPT" ]; then
     mkdir -p /home/container/plugins
     cd /home/container/plugins
 	echo "Downloading plugins..."
-    curl -sL ${PLUGIN_SCRIPT} | sudo bash
+    curl -sL ${PLUGIN_SCRIPT} | bash
 	echo "Finished Downloading plugins!"
 fi
 
