@@ -1,6 +1,6 @@
 #!/bin/bash
 # Handles running Spigot Servers
-sleep 3
+sleep 1
 
 cd /home/container
 # Download the file
@@ -14,6 +14,7 @@ if [ ! -z "$PLUGIN_SCRIPT" ]; then
 	echo "Downloading plugins..."
     curl -sL ${PLUGIN_SCRIPT} | bash
 	echo "Finished Downloading plugins!"
+	sleep 1
 fi
 
 cd /home/container
