@@ -5,7 +5,7 @@ MAINTAINER Dane Everitt <dane+docker@daneeveritt.com>
 
 RUN apk update \
     && apk upgrade \
-    && apk add --no-cache --update curl ca-certificates openssl bash \
+    && apk add --no-cache --update curl ca-certificates openssl bash perl \
     && adduser -D -h /home/container container
 
 USER container
